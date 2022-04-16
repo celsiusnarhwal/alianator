@@ -31,9 +31,9 @@ import alianator
 alianator.resolve(arg, mode=mode)
 ```
 
-The optional `mode` flag can be used to specify which permission should be resolved. If `mode` is `True`, only granted
+The optional `mode` flag can be used to specify which permissions should be resolved. If `mode` is `True`, only granted
 permissions will be resolved; if `mode` is `False`, only denied permissions will be resolved; if `mode` is `None`, all
-permissions will be resolved. If `mode` is not explicitly specified, it will default to `None`.
+permissions will be resolved. If `mode` is not explicitly specified, it will default to `True`.
 
 ```python
 import alianator
@@ -41,42 +41,42 @@ import discord
 
 # Resolving from a discord.Permissions object
 perms = discord.Permissions.general()
-aliases = alianator.resolve(perms, mode=True)
+aliases = alianator.resolve(perms)
 print(aliases)
 # ['Manage Channels', 'Manage Server', 'View Audit Log', 'Read Messages', 'View Guild Insights', 'Manage Roles', 'Manage Webhooks', 'Manage Emojis and Stickers']
 
 
 # Resolving from an integer
 perms = 3072
-aliases = alianator.resolve(perms, mode=True)
+aliases = alianator.resolve(perms)
 print(aliases)
 # ['Read Messages', 'Send Messages']
 
 
 # Resolving from a string
 perms = "send_tts_messages"
-aliases = alianator.resolve(perms, mode=True)
+aliases = alianator.resolve(perms)
 print(aliases)
 # ['Send Text-To-Speech Messages']
 
 
 # Resolving from a tuple
 perms = ("moderate_members", True)
-aliases = alianator.resolve(perms, mode=True)
+aliases = alianator.resolve(perms)
 print(aliases)
 # ['Timeout Members']
 
 
 # Resolving from a list of strings
 perms = ["manage_guild", "manage_emojis"]
-aliases = alianator.resolve(perms, mode=True)
+aliases = alianator.resolve(perms)
 print(aliases)
 # ['Manage Server', 'Manage Emojis and Stickers']
 
 
 # Resolving from a list of tuples
 perms = [("use_slash_commands", True), ("use_voice_activation", True)]
-aliases = alianator.resolve(perms, mode=True)
+aliases = alianator.resolve(perms)
 print(aliases)
 # ['Use Application Commands', 'Use Voice Activity']
 ```

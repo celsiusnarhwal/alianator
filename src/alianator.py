@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sys
 from titlecase import titlecase
+from typing import Union
 
 try:
     import discord
@@ -12,7 +13,7 @@ except ImportError as err:
     exit(1)
 
 
-def resolve(arg: discord.Permissions | int | str | tuple | list[str] | list[tuple], mode: bool = None) -> list[str]:
+def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tuple]], mode: bool = True) -> list[str]:
     """
     Resolves Discord permission names from their API flags to their user-facing aliases.
 
@@ -21,7 +22,7 @@ def resolve(arg: discord.Permissions | int | str | tuple | list[str] | list[tupl
 
     :param mode: A boolean flag that determines which permissions will be resolved. If True, only granted
     permissions will be resolved. If False, only denied permissions will be resolved. If None, all permissions
-    will be resolved. Defaults to None. If the function recieves a string or list of strings, all permissions will
+    will be resolved. Defaults to True. If the function recieves a string or list of strings, all permissions will
     be resolved regardless of the value of this flag.
 
     :return: A list of strings containing the resolved permission aliases.
@@ -43,13 +44,13 @@ def resolve(arg: discord.Permissions | int | str | tuple | list[str] | list[tupl
 
         return [resolutions.get(name) or titlecase(name.replace("_", " ")) for name in names]
 
-    def validator(candidate: tuple | str) -> bool:
+    def validator(candidate: Union[tuple, str]) -> bool:
         if isinstance(candidate, tuple):
             return validator(candidate[0]) and isinstance(candidate[1], bool)
         elif isinstance(candidate, str):
             return candidate in discord.Permissions.VALID_FLAGS
 
-    if not isinstance(mode, bool | None):
+    if not isinstance(mode, Union[bool, None]):
         raise TypeError("mode must be a boolean or None.")
 
     if isinstance(arg, list):
