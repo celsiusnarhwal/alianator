@@ -1,5 +1,9 @@
 # alianator
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/alianator?logo=python&logoColor=white&style=for-the-badge) ![PyPI](https://img.shields.io/pypi/v/alianator?color=green&logo=pypi&logoColor=white&style=for-the-badge) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/celsiusnarhwal/alianator?color=orange&label=latest%20release&logo=github&sort=semver&style=for-the-badge) ![PyPI - License](https://img.shields.io/pypi/l/alianator?color=03cb98&style=for-the-badge)
+
+<a href="https://pypi.org/project/alianator/"><img src="https://img.shields.io/pypi/pyversions/alianator?logo=python&logoColor=white&style=for-the-badge"></a>
+<a href="https://pypi.org/project/alianator/"><img src="https://img.shields.io/pypi/v/alianator?color=green&logo=pypi&logoColor=white&style=for-the-badge"></a>
+<a href="https://github.com/celsiusnarhwal/alianator/releases"><img src="https://img.shields.io/github/v/release/celsiusnarhwal/alianator?color=orange&label=latest%20release&logo=github&sort=semver&style=for-the-badge"></a>
+<a href="https://github.com/celsiusnarhwal/alianator/blob/master/LICENSE.md"><img src="https://img.shields.io/pypi/l/alianator?color=03cb98&style=for-the-badge"></a>
 
 alianator is a tool that helps [Pycord](https://github.com/Pycord-Development/pycord) and
 [discord.py](https://github.com/Rapptz/discord.py) users easily resolve user-facing aliases for Discord permission
