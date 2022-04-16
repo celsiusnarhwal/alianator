@@ -1,4 +1,5 @@
 # alianator
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/alianator?color=03cb98&logo=python&logoColor=03cb98&style=for-the-badge) ![PyPI](https://img.shields.io/pypi/v/alianator?color=03cb98&logo=pypi&logoColor=03cb98&style=for-the-badge) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/celsiusnarhwal/alianator?color=03cb98&label=latest%20release&logo=github&logoColor=03cb98&sort=semver&style=for-the-badge)
 
 alianator is a tool that helps [Pycord](https://github.com/Pycord-Development/pycord) and
 [discord.py](https://github.com/Rapptz/discord.py) users easily resolve user-facing aliases for Discord permission
