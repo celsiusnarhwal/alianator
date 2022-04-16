@@ -1,0 +1,22 @@
+[[package]]
+name = "titlecase"
+version = "2.3"
+description = "Python Port of John Gruber's titlecase.pl"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+regex = ["regex (>=2020.4.4)"]
+tests = ["nose (>=1.0)"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "e0c30b775e5d9cf9f32cc6267c8918db20c9dc3d942fe1692482697dd62967ba"
+
+[metadata.files]
+titlecase = [
+    {file = "titlecase-2.3-py2.py3-none-any.whl", hash = "sha256:037be1a542634d5582735c949f3b247bfc878a4f21c76957ae42167a398c9dce"},
+    {file = "titlecase-2.3.tar.gz", hash = "sha256:9a1595ed9b88f3ce4362a7602ee63cf074e10ac80d1256b32ea1ec5ffa265fa0"},
+]
