@@ -1,19 +1,19 @@
 [tool.poetry]
 name = "alianator"
-version = "2.0.0"
-description = "alianator is a tool that helps Pycord and discord.py users easily resolve user-facing aliases for Discord permission flags."
+version = "3.0.0"
+description = "A Discord permission name resolver for Pycord"
 authors = ["celsius narhwal <celsiusnarhwal@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/celsiusnarhwal/alianator"
-keywords = ["discord", "permissions", "aliases", "pycord", "discord.py"]
+keywords = ["discord", "permissions", "aliases", "pycord"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 titlecase = "^2.3"
 
 [tool.poetry.dev-dependencies]
-py-cord = "^1.7.3"
+py-cord = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

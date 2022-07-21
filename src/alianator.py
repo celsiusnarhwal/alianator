@@ -1,19 +1,20 @@
 from __future__ import annotations
 
 import sys
-from titlecase import titlecase
 from typing import Union
+
+from titlecase import titlecase
 
 try:
     import discord
 except ImportError as err:
-    err.msg = "alianator couldn't find Pycord or discord.py in your environment. Install one (and only one!) of " \
-              "them, then try again."
+    err.msg = "alianator couldn't find Pycord in your environment. Install it, then try again."
     print(err, file=sys.stderr)
     exit(1)
 
 
-def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tuple]], mode: bool = True) -> list[str]:
+def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tuple]],
+            mode: Union[bool, None] = True) -> list[str]:
     """
     Resolves Discord permission names from their API flags to their user-facing aliases.
 
@@ -27,6 +28,7 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
 
     :return: A list of strings containing the resolved permission aliases.
     """
+
     def resolver(names: list[str]) -> list[str]:
         resolutions = {
             "external_emojis": "Use External Emoji",
@@ -65,7 +67,7 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
                 raise TypeError("All permissions must be tuples of the format (str, bool) where str is a valid "
                                 "permission flag.")
             else:
-                raws = [x[0] for x in arg] if mode is None else [x[0] for x in arg if x[1] is mode]
+                raws = [x[0] for x in arg if mode in [x[1], None]]
 
         else:
             raise TypeError("If you pass in a list, it must be comprised of either exclusively strings or exclusively "
@@ -79,17 +81,16 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
 
     elif isinstance(arg, tuple):
         if validator(arg):
-            raws = [arg[0]] if mode is None else [arg[0]] if arg[1] is mode else []
+            raws = [arg[0]] if mode in [arg[1], None] else []
         else:
             raise TypeError("If you pass in a tuple, it must be of the format (str, bool) where str is a valid "
                             "permission flag.")
 
     elif isinstance(arg, int):
-        raws = [p[0] for p in discord.Permissions(arg)] if mode is None else [p[0] for p in discord.Permissions(arg)
-                                                                              if p[1] is mode]
+        raws = [p[0] for p in discord.Permissions(arg) if mode in [p[1], None]]
 
     elif isinstance(arg, discord.Permissions):
-        raws = [p[0] for p in arg] if mode is None else [p[0] for p in arg if p[1] is mode]
+        raws = [p[0] for p in arg if mode in [p[1], None]]
 
     else:
         raise TypeError("Argument must be a discord.Permissions object, an integer, a string, a tuple, or a list.")
