@@ -1,5 +1,5 @@
 name: Bug Report
-description: If alianator is returning an resolution that doesn't align with the Discord user interface, use the "Outdated Permission" template instead.
+description: If alianator is returning a resolution that doesn't align with the Discord user interface, use the "Outdated Permission" template instead.
 labels: [ bug ]
 
 body:
