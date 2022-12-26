@@ -1,4 +1,5 @@
 name: Outdated Permission
+title: "outdated permission: "
 description: Report an outdated permission resolution. If there are multiple outdated resolutions, file a separate report for each.
 labels: [ permission ]
 
