@@ -1,4 +1,5 @@
 name: Bug Report
+title: "bug: "
 description: If alianator is returning a resolution that doesn't align with the Discord user interface, use the "Outdated Permission" form instead.
 labels: [ bug ]
 
