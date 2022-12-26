@@ -18,23 +18,31 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
     """
     Resolves Discord permission names from their API flags to their user-facing aliases.
 
-    :param arg: A discord.Permissions object, a integer, string tuple, list of strings, or list of tuples
-    representing the permissions to resolve.
+    Parameters
+    ----------
+    arg : Union[discord.Permissions, int, str, tuple, list[str], list[tuple]]
+        An object representing the permissions to resolve.
+    mode : Union[bool, None], optional
+        A boolean flag that determines which permissions will be resolved. If True, only granted permissions will be
+        resolved. If False, only denied permissions will be resolved. If None, all permissions will be resolved.
+        Defaults to True. If the function recieves a string or list of strings, all permissions will be resolved
+        regardless of the value of this flag.
 
-    :param mode: A boolean flag that determines which permissions will be resolved. If True, only granted
-    permissions will be resolved. If False, only denied permissions will be resolved. If None, all permissions
-    will be resolved. Defaults to True. If the function recieves a string or list of strings, all permissions will
-    be resolved regardless of the value of this flag.
-
-    :return: A list of strings containing the resolved permission aliases.
+    Returns
+    -------
+    list[str]
+        A list of resolved permissions.
     """
 
     def resolver(names: list[str]) -> list[str]:
         resolutions = {
+            "send_messages": "Send Messages and Create Posts",
+            "send_messages_in_threads": "Send Messages in Threads and Posts",
             "external_emojis": "Use External Emoji",
             "external_stickers": "Use External Stickers",
             "manage_emojis": "Manage Emojis and Stickers",
             "manage_guild": "Manage Server",
+            "manage_threads": "Manage Threads and Posts",
             "mention_everyone": "Mention \\@everyone, \\@here, and All Roles",
             "moderate_members": "Timeout Members",
             "send_tts_messages": "Send Text-to-Speech Messages",
@@ -42,6 +50,7 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
             "stream": "Video",
             "use_slash_commands": "Use Application Commands",
             "use_voice_activation": "Use Voice Activity",
+            "view_guild_insights": "View Server Insights",
         }
 
         return [resolutions.get(name) or titlecase(name.replace("_", " ")) for name in names]

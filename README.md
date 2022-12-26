@@ -1,9 +1,9 @@
 # alianator
 
-<a href="https://pypi.org/project/alianator/"><img src="https://img.shields.io/pypi/pyversions/alianator?logo=python&logoColor=white&style=for-the-badge"></a>
-<a href="https://pypi.org/project/alianator/"><img src="https://img.shields.io/pypi/v/alianator?color=green&logo=pypi&logoColor=white&style=for-the-badge"></a>
-<a href="https://github.com/celsiusnarhwal/alianator/releases"><img src="https://img.shields.io/github/v/release/celsiusnarhwal/alianator?color=orange&label=latest%20release&logo=github&sort=semver&style=for-the-badge"></a>
-<a href="https://github.com/celsiusnarhwal/alianator/blob/master/LICENSE.md"><img src="https://img.shields.io/pypi/l/alianator?color=03cb98&style=for-the-badge"></a>
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/alianator?logo=python&logoColor=white&style=for-the-badge)](https://pypi.org/project/alianator)
+[![PyPI](https://img.shields.io/pypi/v/alianator?logo=pypi&color=green&logoColor=white&style=for-the-badge)](https://pypi.org/project/alianator)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/celsiusnarhwal/alianator?logo=github&color=orange&logoColor=white&style=for-the-badge)](https://github.com/celsiusnarhwal/alianator/releases)
+[![PyPI - License](https://img.shields.io/pypi/l/alianator?color=03cb98&style=for-the-badge)](https://github.com/celsiusnarhwal/alianator/blob/master/LICENSE)
 
 alianator is a Discord permission name resolver for [Pycord](https://github.com/Pycord-Development/pycord). 
 It takes Discord's API permission flags (e.g. `manage_guild`) and resolves them to their user-facing aliases (e.g. `Manage Server`).

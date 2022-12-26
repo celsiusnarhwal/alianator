@@ -1,18 +1,21 @@
 [tool.poetry]
 name = "alianator"
-version = "3.0.0"
+version = "3.1.0"
 description = "A Discord permission name resolver for Pycord"
 authors = ["celsius narhwal <celsiusnarhwal@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/celsiusnarhwal/alianator"
 keywords = ["discord", "permissions", "aliases", "pycord"]
+packages = [{include = "alianator", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+chevron = "^0.14.0"
 titlecase = "^2.3"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.7.0"
 py-cord = "^2.0.0"
 
 [build-system]
