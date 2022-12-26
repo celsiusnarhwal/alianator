@@ -1,8 +1,11 @@
-alianator {{ alianator_version }}
-Pycord {{ pycord_version }}
-{{ python_implementation }} {{ python_version }}
-
-System Info:
-- Name: {{ system_info.name }}
-- Version: {{ system_info.version }}
-- Architecture: {{ system_info.architecture }}
+alianator:
+    - {{ alianator_version }}
+pycord:
+    - {{ pycord_version }}
+python:
+    - implementation: {{ python_implementation }}
+    - version: {{ python_version }}
+system-info:
+    - name: {{ system_info.name }}
+    - version: {{ system_info.version }}
+    - architecture: {{ system_info.architecture }}
