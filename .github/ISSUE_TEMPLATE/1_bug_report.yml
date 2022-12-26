@@ -37,7 +37,5 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: |
-        If possible, run `python -m alianator.diagnostic` and paste the output below. Unless the bug you are reporting
-        prevents you from doing this, this field is required.
+      description: If possible, run `python -m alianator.diagnostic` and paste the output below. Unless the bug you are reporting prevents you from doing this, this field is required.
       render: YAML
