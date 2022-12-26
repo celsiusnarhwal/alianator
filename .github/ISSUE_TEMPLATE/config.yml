@@ -1,4 +1,4 @@
 contact_links:
   - name: My issue is related to Pycord
-    about: If your issue arises from Pycord and not alianator, file an issue on their repository instead.
+    about: If your issue arises from Pycord and not alianator, file an issue on Pycord's repository.
     url: https://github.com/Pycord-Development/pycord/issues/new
