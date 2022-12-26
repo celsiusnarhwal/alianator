@@ -1,0 +1,31 @@
+name: Outdated Permission
+description: |
+  Report an outdated permission resolution. If there are multiple outdated resolutions, 
+  file a separate report for each.
+labels: [ permission ]
+
+body:
+  - type: textarea
+    id: flag
+    attributes:
+      label: Permission Flag
+      description: The name of the permission flag with an outdated resolution.
+      placeholder: e.g. "send_messages"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-resolutionq
+    attributes:
+      label: Current Resolution
+      description: The resolution alianator currently provides for the permission flag.
+      placeholder: e.g. "Send Messages"
+
+  - type: textarea
+    id: correct-resolution
+    attributes:
+      label: Correct Resolution
+      description: The correct resolution for the permission flag as written in the Discord user interface.
+      placeholder: e.g. "Send Messages and Create Posts"
+    validations:
+      required: true

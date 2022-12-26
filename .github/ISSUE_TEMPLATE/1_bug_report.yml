@@ -1,0 +1,45 @@
+name: Bug Report
+description: | 
+  Self-explanatory. If you're here because alianator is returning an alias that doesn't align with the Discord user 
+  interface, use the "Outdated Permission" template instead.
+labels: [ bug ]
+
+body:
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe alianator's expected behavior with respect to this issue.
+      placeholder: When I do X, Y will happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: Describe alianator's actual behavior with respect to this issue. Please provide any applicable console output.
+      placeholder: When I do X, Y happens.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Provide step-by-step instructions on how to reproduce this issue.
+      placeholder: |
+        1. Do X
+        2. Do Y
+        3. Observe Z
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        If possible, run `python -m alianator.diagnostic` and paste the output below. Unless the bug you are reporting
+        prevents you from doing this, this field is required.
+      render: YAML
