@@ -36,6 +36,7 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
 
     def resolver(names: list[str]) -> list[str]:
         resolutions = {
+            # Manually defines resolutions that can't be accomplished via simple character substitution.
             "send_messages": "Send Messages and Create Posts",
             "send_messages_in_threads": "Send Messages in Threads and Posts",
             "external_emojis": "Use External Emoji",
