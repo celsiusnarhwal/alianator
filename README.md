@@ -40,14 +40,14 @@ import discord
 perms = discord.Permissions.general()
 aliases = alianator.resolve(perms)
 print(aliases)
-# ['Manage Channels', 'Manage Server', 'View Audit Log', 'Read Messages', 'View Guild Insights', 'Manage Roles', 'Manage Webhooks', 'Manage Emojis and Stickers']
+# ['Manage Channels', 'Manage Server', 'View Audit Log', 'Read Messages', 'View Server Insights', 'Manage Roles', 'Manage Webhooks', 'Manage Emojis and Stickers']
 
 
 # Resolving from an integer
 perms = 3072
 aliases = alianator.resolve(perms)
 print(aliases)
-# ['Read Messages', 'Send Messages']
+# ['View Channel', 'Send Messages and Create Posts']
 
 
 # Resolving from a string

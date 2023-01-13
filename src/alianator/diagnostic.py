@@ -1,8 +1,8 @@
 import platform
 from pathlib import Path
 
-import chevron
 import discord
+from jinja2 import Environment, FileSystemLoader
 
 import alianator
 
@@ -19,7 +19,9 @@ data = {
         "name": uname.system,
         "version": uname.release,
         "architecture": uname.machine,
-    }
+    },
 }
 
-print(chevron.render((here / "templates" / "diagnostic.mustache").open(), data))
+env = Environment(loader=FileSystemLoader(here / "templates"))
+
+print(env.get_template("diagnostic.yml.jinja").render(data))

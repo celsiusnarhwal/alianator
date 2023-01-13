@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "alianator"
-version = "3.1.0"
+version = "3.2.0"
 description = "A Discord permission name resolver for Pycord"
 authors = ["celsius narhwal <celsiusnarhwal@gmail.com>"]
 license = "MIT"
@@ -11,13 +11,16 @@ packages = [{include = "alianator", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-chevron = "^0.14.0"
+jinja2 = "^3.1.2"
+multimethod = "^1.9.1"
+pydantic = "^1.10.4"
 titlecase = "^2.3"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.7.0"
+pre-commit = "^2.21.0"
 py-cord = "^2.0.0"
-
+black = {extras = ["d"], version = "^22.12.0"}
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

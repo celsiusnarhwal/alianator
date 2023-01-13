@@ -1,28 +1,51 @@
 from __future__ import annotations
 
-import sys
-from typing import Union
+from typing import Union, Optional
 
+from multimethod import multimethod
+from pydantic import StrictInt, StrictBool, validate_arguments
 from titlecase import titlecase
 
 try:
     import discord
 except ImportError as err:
     err.msg = "alianator couldn't find Pycord in your environment. Install it, then try again."
-    print(err, file=sys.stderr)
-    exit(1)
+    raise err
 
 
-def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tuple]],
-            mode: Union[bool, None] = True) -> list[str]:
+class _PermissionFlagMeta(type):
+    def __new__(mcs, name, bases, namespace, **kwargs):
+        name = namespace.get("__name__", "discord.Permissions.VALID_FLAGS")
+        return super().__new__(mcs, name, bases, namespace, **kwargs)
+
+    def __instancecheck__(self, instance):
+        return instance in discord.Permissions.VALID_FLAGS
+
+
+class _PermissionFlag(metaclass=_PermissionFlagMeta):
+    pass
+
+
+@validate_arguments(config=dict(arbitrary_types_allowed=True))
+def resolve(
+    arg: Union[
+        discord.Permissions,
+        StrictInt,
+        _PermissionFlag,
+        tuple[_PermissionFlag, StrictBool],
+        list[_PermissionFlag],
+        list[tuple[_PermissionFlag, StrictBool]],
+    ],
+    mode: Optional[StrictBool] = True,
+) -> list[str]:
     """
     Resolves Discord permission names from their API flags to their user-facing aliases.
 
     Parameters
     ----------
-    arg : Union[discord.Permissions, int, str, tuple, list[str], list[tuple]]
+    arg : Union[discord.Permissions, int, str, tuple[str, bool], list[str], list[tuple[str, bool]]]
         An object representing the permissions to resolve.
-    mode : Union[bool, None], optional
+    mode : bool, optional
         A boolean flag that determines which permissions will be resolved. If True, only granted permissions will be
         resolved. If False, only denied permissions will be resolved. If None, all permissions will be resolved.
         Defaults to True. If the function recieves a string or list of strings, all permissions will be resolved
@@ -35,14 +58,13 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
     """
 
     def resolver(names: list[str]) -> list[str]:
+        # manually define resolutions that can't be accomplished by simple character substitution
         resolutions = {
-            # Manually defines resolutions that can't be accomplished via simple character substitution.
             "send_messages": "Send Messages and Create Posts",
             "send_messages_in_threads": "Send Messages in Threads and Posts",
             "external_emojis": "Use External Emoji",
             "external_stickers": "Use External Stickers",
             "manage_emojis": "Manage Emojis and Stickers",
-            "manage_guild": "Manage Server",
             "manage_threads": "Manage Threads and Posts",
             "mention_everyone": "Mention \\@everyone, \\@here, and All Roles",
             "moderate_members": "Timeout Members",
@@ -51,58 +73,40 @@ def resolve(arg: Union[discord.Permissions, int, str, tuple, list[str], list[tup
             "stream": "Video",
             "use_slash_commands": "Use Application Commands",
             "use_voice_activation": "Use Voice Activity",
-            "view_guild_insights": "View Server Insights",
         }
 
-        return [resolutions.get(name) or titlecase(name.replace("_", " ")) for name in names]
+        return [
+            resolutions.get(name)
+            or titlecase(name.replace("_", " ").replace("guild", "server"))
+            for name in names
+        ]
 
-    def validator(candidate: Union[tuple, str]) -> bool:
-        if isinstance(candidate, tuple):
-            return validator(candidate[0]) and isinstance(candidate[1], bool)
-        elif isinstance(candidate, str):
-            return candidate in discord.Permissions.VALID_FLAGS
+    @multimethod
+    def _resolve(permissions: Union[discord.Permissions, list[tuple[str, bool]]]):
+        return resolver(
+            [perm for perm, status in permissions if mode in [status, None]]
+        )
 
-    if not isinstance(mode, Union[bool, None]):
-        raise TypeError("mode must be a boolean or None.")
+    @multimethod
+    def _resolve(permissions: list[str]):
+        return resolver(permissions)
 
-    if isinstance(arg, list):
-        if all(isinstance(x, str) for x in arg):
-            if any(not validator(x) for x in arg):
-                raise ValueError("List contains invalid permission flags")
-            else:
-                raws = arg
+    @multimethod
+    def _resolve(permissions: tuple[str, bool]):
+        return resolver([permissions[0]]) if mode in [permissions[1], None] else []
 
-        elif all(isinstance(x, tuple) for x in arg):
-            if any(not validator(x) for x in arg):
-                raise TypeError("All permissions must be tuples of the format (str, bool) where str is a valid "
-                                "permission flag.")
-            else:
-                raws = [x[0] for x in arg if mode in [x[1], None]]
+    @multimethod
+    def _resolve(permissions: str):
+        return resolver([permissions])
 
-        else:
-            raise TypeError("If you pass in a list, it must be comprised of either exclusively strings or exclusively "
-                            "tuples of the format (str, bool) where str is a valid permission flag.")
+    @multimethod
+    def _resolve(permissions: int):
+        return resolver(
+            [
+                perm
+                for perm, status in discord.Permissions(permissions)
+                if mode in [status, None]
+            ]
+        )
 
-    elif isinstance(arg, str):
-        if validator(arg):
-            raws = [arg]
-        else:
-            raise ValueError(f"{arg} is not a valid permission flag.")
-
-    elif isinstance(arg, tuple):
-        if validator(arg):
-            raws = [arg[0]] if mode in [arg[1], None] else []
-        else:
-            raise TypeError("If you pass in a tuple, it must be of the format (str, bool) where str is a valid "
-                            "permission flag.")
-
-    elif isinstance(arg, int):
-        raws = [p[0] for p in discord.Permissions(arg) if mode in [p[1], None]]
-
-    elif isinstance(arg, discord.Permissions):
-        raws = [p[0] for p in arg if mode in [p[1], None]]
-
-    else:
-        raise TypeError("Argument must be a discord.Permissions object, an integer, a string, a tuple, or a list.")
-
-    return resolver(raws)
+    return _resolve(arg)
