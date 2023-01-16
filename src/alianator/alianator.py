@@ -92,21 +92,11 @@ def resolve(
         return resolver(permissions)
 
     @multimethod
-    def _resolve(permissions: tuple[str, bool]):
-        return resolver([permissions[0]]) if mode in [permissions[1], None] else []
-
-    @multimethod
-    def _resolve(permissions: str):
-        return resolver([permissions])
+    def _resolve(permissions: Union[str, tuple[str, bool]]):
+        return _resolve([permissions])
 
     @multimethod
     def _resolve(permissions: int):
-        return resolver(
-            [
-                perm
-                for perm, status in discord.Permissions(permissions)
-                if mode in [status, None]
-            ]
-        )
+        return _resolve(discord.Permissions(permissions))
 
     return _resolve(arg)
