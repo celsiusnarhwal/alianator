@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "alianator"
-version = "3.2.1"
+version = "3.3.0"
 description = "A Discord permission name resolver for Pycord"
 authors = ["celsius narhwal <celsiusnarhwal@gmail.com>"]
 license = "MIT"
