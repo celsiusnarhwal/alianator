@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Union, Optional
 
 from multimethod import multimethod
-from pydantic import StrictInt, StrictBool, validate_arguments
+from pydantic import validate_arguments
 from titlecase import titlecase
 
 __all__ = ["resolve", "resolutions"]
@@ -16,9 +16,8 @@ except ImportError as err:
 
 
 class PermissionFlagMeta(type):
-    def __new__(mcs, name, bases, namespace, **kwargs):
-        name = "discord.Permissions.VALID_FLAGS"
-        return super().__new__(mcs, name, bases, namespace, **kwargs)
+    def __new__(mcs, name, *args, **kwargs):
+        return super().__new__(mcs, "discord.Permissions.VALID_FLAGS", *args, **kwargs)
 
     def __instancecheck__(self, instance):
         return instance in discord.Permissions.VALID_FLAGS
@@ -32,15 +31,15 @@ class PermissionFlag(metaclass=PermissionFlagMeta):
 def resolve(
     arg: Union[
         discord.Permissions,
-        StrictInt,
+        int,
         PermissionFlag,
-        tuple[PermissionFlag, StrictBool],
+        tuple[PermissionFlag, bool],
         list[PermissionFlag],
-        list[tuple[PermissionFlag, StrictBool]],
+        list[tuple[PermissionFlag, bool]],
     ],
-    mode: Optional[StrictBool] = True,
+    mode: Optional[bool] = True,
     *,
-    escape_mentions: Optional[StrictBool] = True,
+    escape_mentions: Optional[bool] = True,
 ) -> list[str]:
     """
     Resolve Discord permission names from their API flags to their user-facing aliases.
@@ -115,7 +114,7 @@ def resolve(
 
 
 @validate_arguments
-def resolutions(*, escape_mentions: Optional[StrictBool] = True):
+def resolutions(*, escape_mentions: Optional[bool] = True):
     """
     Return a dictionary of all available permission resolutions.
 

@@ -1,17 +1,16 @@
 import platform
+from importlib import metadata
 from pathlib import Path
 
 import discord
 from jinja2 import Environment, FileSystemLoader
-
-import alianator
 
 here = Path(__file__).parent
 
 uname = platform.uname()
 
 data = {
-    "alianator_version": alianator.__version__,
+    "alianator_version": metadata.version("alianator"),
     "pycord_version": discord.__version__,
     "python_implementation": platform.python_implementation(),
     "python_version": platform.python_version(),
