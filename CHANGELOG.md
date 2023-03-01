@@ -6,6 +6,11 @@ Breaking changes are marked with a 🚩.
 
 ## [4.0.0] - 2023-02-28 <a name="4-0-0"></a>
 
+### Added
+
+- alianator now keeps a proper changelog. You're reading it. Release notes from earlier versions have been ported over
+  to this changelog.
+
 ### Changed
 
 - The types to `alianator.resolve()` and `alianator.resolutions()` are no longer strictly enforced. As long as
