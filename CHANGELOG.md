@@ -55,7 +55,7 @@ No user-facing changes are introduced in this release.
 
 ### Added
 
-- alianator's now has a `diagnostic` module which prints some basic information about alianator and your development
+- alianator now has a `diagnostic` module which prints some basic information about alianator and your development
   environment when run. You may be asked to provide the output of `python -m alianator.diagnostic` when opening issues.
 
 ### Changed
