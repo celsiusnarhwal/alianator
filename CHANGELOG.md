@@ -20,11 +20,11 @@ Breaking changes are marked with a 🚩.
 
 - 🚩 `alianator.__version__` has been removed. Use `importlib.metadata` to query version information instead.
 
-```py
-from importlib import metadata
-
-metadata.version("alianator")
-```
+    ```py
+    from importlib import metadata
+    
+    metadata.version("alianator")
+    ```
 
 ## [3.3.0] - <a name="3-3-0">2023-02-28</a>
 
