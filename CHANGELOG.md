@@ -30,7 +30,7 @@ Breaking changes are marked with a 🚩.
 
 ### Added
 
-- `alianator.resolve()` now takes a optional, boolean, keyword-only, `escape_mentions` argument that, if `False`, will
+- `alianator.resolve()` now takes an optional, boolean, keyword-only, `escape_mentions` argument that, if `False`, will
   cause `mention_everyone` to resolve to `Mention @everyone, @here, and All Roles` instead
   of `Mention \@everyone, \@here, and All Roles`. The backslashes are necessary to avoid accidental mass mentions in
   cases where alianator's output will ultimately be transformed into a Discord message, but if you don't want that,
