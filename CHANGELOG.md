@@ -13,8 +13,8 @@ Breaking changes are marked with a 🚩.
 
 ### Changed
 
-- The types to `alianator.resolve()` and `alianator.resolutions()` are no longer strictly enforced. As long as
-  Pydantic can coerce your input to conform to the expected types, everything will be fine.
+- The types of arguments to `alianator.resolve()` and `alianator.resolutions()` are no longer strictly enforced. As
+  long as Pydantic can coerce your input to conform to the expected types, everything will be fine.
 
 ### Removed
 
