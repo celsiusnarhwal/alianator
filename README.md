@@ -4,6 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/alianator?logo=pypi&color=green&logoColor=white&style=for-the-badge)](https://pypi.org/project/alianator)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/celsiusnarhwal/alianator?logo=github&color=orange&logoColor=white&style=for-the-badge)](https://github.com/celsiusnarhwal/alianator/releases)
 [![PyPI - License](https://img.shields.io/pypi/l/alianator?color=03cb98&style=for-the-badge)](https://github.com/celsiusnarhwal/alianator/blob/master/LICENSE)
+[![Black](https://aegis.celsiusnarhwal.dev/badge/black?style=for-the-badge)](https://github.com/psf/black)
 
 alianator is a Discord permission name resolver for [Pycord](https://github.com/Pycord-Development/pycord). 
 It takes Discord's API permission flags (e.g. `manage_guild`) and resolves them to their user-facing aliases (e.g. `Manage Server`).
