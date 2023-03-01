@@ -26,7 +26,7 @@ Breaking changes are marked with a 🚩.
     metadata.version("alianator")
     ```
 
-## [3.3.0] - <a name="3-3-0">2023-02-28</a>
+## [3.3.0] - <a name="3-3-0">2023-01-16</a>
 
 ### Added
 
