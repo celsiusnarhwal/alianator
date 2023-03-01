@@ -32,7 +32,7 @@ Breaking changes are marked with a 🚩.
 
 - `alianator.resolve()` now takes a optional, boolean, keyword-only, `escape_mentions` argument that, if `False`, will
   cause `mention_everyone` to resolve to `Mention @everyone, @here, and All Roles` instead
-  of `Mention \@everyone, \@here, and All Roles`. The backslashes are necessary avoid accidental mass mentions in
+  of `Mention \@everyone, \@here, and All Roles`. The backslashes are necessary to avoid accidental mass mentions in
   cases where alianator's output will ultimately be transformed into a Discord message, but if you don't want that,
   you can now turn it off. `escape_mentions` defaults to `True`.
 - The new `alianator.resolutions()` function returns a dictionary mapping each existing permission flag to its
