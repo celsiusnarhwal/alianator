@@ -1,4 +1,4 @@
-# Changelog
+# Changelog[^1]
 
 All notable changes to this project will be documented in this file.
 
@@ -86,3 +86,5 @@ No user-facing changes are introduced in this release.
 ## [1.0.0] - <a name="1-0-0">2022-04-15</a>
 
 This is the initial release of alianator.
+
+[^1]: Based on version 1.0.0 [Keep a Changelog](http://keepachangelog.com).
