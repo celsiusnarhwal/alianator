@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 Breaking changes are marked with a 🚩.
 
-## [4.0.0] - 2023-02-28 <a name="4-0-0"></a>
+## <a name="4-0-1">[4.0.1] - 2023-03-02</a>
+
+### Changed
+
+- alianator's dependency on [titlecase](https://github.com/ppannuto/python-titlecase) is now pinned to version 2.3.
+
+## <a name="4-0-0">[4.0.0] - 2023-02-28</a>
 
 ### Added
 
