@@ -87,4 +87,4 @@ No user-facing changes are introduced in this release.
 
 This is the initial release of alianator.
 
-[^1]: Based on version 1.0.0 [Keep a Changelog](http://keepachangelog.com).
+[^1]: Based on version 1.0.0 of [Keep a Changelog](http://keepachangelog.com).
