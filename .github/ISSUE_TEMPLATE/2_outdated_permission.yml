@@ -1,7 +1,7 @@
 name: Outdated Permission
 title: "outdated permission: "
 description: Report an outdated permission resolution. If there are multiple outdated resolutions, file a separate report for each.
-labels: [ permission ]
+labels: [permission]
 
 body:
   - type: textarea
@@ -20,7 +20,7 @@ body:
       description: The resolution alianator currently provides for the permission flag.
       placeholder: e.g. "Send Messages"
     validations:
-        required: true
+      required: true
 
   - type: textarea
     id: correct-resolution

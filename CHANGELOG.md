@@ -1,8 +1,14 @@
 # Changelog[^1]
 
-All notable changes to this project will be documented in this file.
+All notable changes to alianator will be documented here. Breaking changes are marked with a 🚩.
 
-Breaking changes are marked with a 🚩.
+alianator adheres to [semantic versioning](https://semver.org/spec/v2.0.0.html).
+
+## <a name="4-0-2">[4.0.2] - 2023-03-05</a>
+
+### Changed
+
+- alianator now formally depends on Pycord 1.7.3 or later.
 
 ## <a name="4-0-1">[4.0.1] - 2023-03-02</a>
 
@@ -26,13 +32,13 @@ Breaking changes are marked with a 🚩.
 
 - 🚩 `alianator.__version__` has been removed. Use `importlib.metadata` to query version information instead.
 
-    ```py
-    from importlib import metadata
-    
-    metadata.version("alianator")
-    ```
+  ```py
+  from importlib import metadata
 
-## [3.3.0] - <a name="3-3-0">2023-01-16</a>
+  metadata.version("alianator")
+  ```
+
+## <a name="3-3-0">[3.3.0] - 2023-01-16</a>
 
 ### Added
 
@@ -45,11 +51,11 @@ Breaking changes are marked with a 🚩.
   resolution. It also accepts an optional `escape_mentions` argument, which works the same as it does
   in `alianator.resolve()`.
 
-## [3.2.1] - <a name="3-2-1">2023-01-16</a>
+## <a name="3-2-1">[3.2.1] - 2023-01-16</a>
 
 No user-facing changes are introduced in this release.
 
-## [3.2.0] - <a name="3-2-0">2023-01-13</a>
+## <a name="3-2-0">[3.2.0] - 2023-01-13</a>
 
 ### Changed
 
@@ -57,7 +63,7 @@ No user-facing changes are introduced in this release.
   unsupported types to `alianator.resolve()`, the resulting error message will probably be more helpful than it was
   previously.
 
-## [3.1.0] - <a name="3-1-0">2022-12-26</a>
+## <a name="3-1-0">[3.1.0] - 2022-12-26</a>
 
 ### Added
 
@@ -72,24 +78,24 @@ No user-facing changes are introduced in this release.
 - `manage_threads` now resolves to "Manage Threads and Posts". (It previously resolved to "Manage Threads".)
 - `view_guild_insights` now resolves to "View Server Insights". (It previously resolved to "View Guild Insights".)
 
-## [3.0.0] - <a name="3-0-0">2022-07-21</a>
+## <a name="3-0-0">[3.0.0] - 2022-07-21</a>
 
 ### Removed
 
 - 🚩 Support for [discord.py](https://github.com/Rapptz/discord.py) has been dropped,
   leaving [Pycord](https://github.com/Pycord-Development/pycord) as the only supported Discord API wrapper. alianator
-  *might* still work with discord.py
+  _might_ still work with discord.py
   since Pycord is derivative of it and both libraries use the `discord` namespace, but I'm no longer making any promises
   to that end. Issues related to discord.py will be closed without comment.
 
-## [2.0.0] - <a name="3-0-0">2022-04-16</a>
+## <a name="2-0-0">[2.0.0] - 2022-04-16</a>
 
 ### Changed
 
 - 🚩 `alianator.resolve()`'s `mode` parameter now defaults to True instead of None.
 - alianator is now compatible with Python 3.8 and 3.9.
 
-## [1.0.0] - <a name="1-0-0">2022-04-15</a>
+## <a name="1-0-0">[1.0.0] - 2022-04-15</a>
 
 This is the initial release of alianator.
 

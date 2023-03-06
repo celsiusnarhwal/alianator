@@ -1,18 +1,13 @@
 from __future__ import annotations
 
-from typing import Union, Optional
+from typing import Optional, Union
 
+import discord
 from multimethod import multimethod
 from pydantic import validate_arguments
 from titlecase import titlecase
 
 __all__ = ["resolve", "resolutions"]
-
-try:
-    import discord
-except ImportError as err:
-    err.msg = "alianator couldn't find Pycord in your environment. Install it, then try again."
-    raise err
 
 
 class PermissionFlagMeta(type):

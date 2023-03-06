@@ -6,17 +6,15 @@
 [![PyPI - License](https://img.shields.io/pypi/l/alianator?color=03cb98&style=for-the-badge)](https://github.com/celsiusnarhwal/alianator/blob/master/LICENSE)
 [![Black](https://aegis.celsiusnarhwal.dev/badge/black?style=for-the-badge)](https://github.com/psf/black)
 
-alianator is a Discord permission name resolver for [Pycord](https://github.com/Pycord-Development/pycord). 
-It takes Discord's API permission flags (e.g. `manage_guild`) and resolves them to their user-facing aliases (e.g. `Manage Server`).
+alianator is a Discord permission name resolver for [Pycord](https://github.com/Pycord-Development/pycord).
+It takes Discord's API permission flags (e.g. `manage_guild`) and resolves them to their user-facing aliases (
+e.g. `Manage Server`).
 
 ## Installation
 
 ```bash
 $ pip install alianator
 ```
-
-[Pycord](https://github.com/Pycord-Development/pycord) is not included as a dependency of alianator, but nonetheless must 
-be installed for it to work. If alianator is unable to import the `discord` namespace, it will raise an `ImportError`.
 
 ## Usage
 
