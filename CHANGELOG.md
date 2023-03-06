@@ -82,7 +82,7 @@ No user-facing changes are introduced in this release.
 ### Other Notes
 
 - [Pycord v3](https://github.com/Pycord-Development/pycord-v3), the next major version of Pycord, was released in a
-  in a pre-alpha state in the time since the previous release of alianator. alianator **does not** support Pycord v3
+  in a pre-alpha state in the time since alianator's last release. alianator **does not** support Pycord v3
   at this time. Will it ever? Who knows. Not making any promises, though.
 
 ## <a name="3-0-0">[3.0.0] - 2022-07-21</a>
