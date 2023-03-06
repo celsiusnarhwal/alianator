@@ -79,7 +79,7 @@ No user-facing changes are introduced in this release.
 - `manage_threads` now resolves to "Manage Threads and Posts". (It previously resolved to "Manage Threads".)
 - `view_guild_insights` now resolves to "View Server Insights". (It previously resolved to "View Guild Insights".)
 
-## Other Notes
+### Other Notes
 
 - [Pycord v3](https://github.com/Pycord-Development/pycord-v3), the next major version of Pycord, was released in a
   in a pre-alpha state in the time since the previous release of alianator. alianator **does not** support Pycord v3
