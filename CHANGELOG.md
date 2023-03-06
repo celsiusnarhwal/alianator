@@ -8,7 +8,8 @@ alianator adheres to [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- alianator now formally depends on Pycord 1.7.3 or later.
+- alianator now formally depends on Pycord 1.7.3 or later. This means that installing alianator will now also install Pycord if it's not installed already.
+  - Pycord v3 remains unsupprted.
 
 ## <a name="4-0-1">[4.0.1] - 2023-03-02</a>
 
