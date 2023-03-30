@@ -4,6 +4,12 @@ All notable changes to alianator will be documented here. Breaking changes are m
 
 alianator adheres to [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- `manage_emojis` and `manage_emojis_and_stickers` now resolve to "Manage Guild Expressions".
+
 ## <a name="4-0-2">[4.0.2] - 2023-03-05</a>
 
 ### Changed
