@@ -1,4 +1,5 @@
+blank_issues_enabled: false
 contact_links:
-  - name: My issue is related to Pycord
-    about: If your issue arises from Pycord and not alianator, file an issue on Pycord's repository.
-    url: https://github.com/Pycord-Development/pycord/issues/new
+  - name: I have another issue
+    about: If you have another issue, such as a feature request or a general support inquiry, start a discussion instead.
+    url: https://github.com/celsiusnarhwal/alianator/discussions
