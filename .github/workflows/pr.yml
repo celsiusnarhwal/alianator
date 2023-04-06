@@ -11,8 +11,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Install Poetry
+        run: pipx install poetry==1.4.1
+
       - name: Install Dependencies
-        run: pipx install poetry==1.4.1 && poetry install --only ci
+        run: poetry install --no-root --only ci
         env:
           POETRY_VIRTUALENVS_CREATE: false
 
