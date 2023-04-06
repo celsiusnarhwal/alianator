@@ -30,7 +30,7 @@ jobs:
 
           import tomlkit as toml
 
-          with open("src/alienator/resolutions.toml", "w+") as f:
+          with open("src/alianator/resolutions.toml", "w+") as f:
               resolutions = toml.load(f)
               resolutions["permissions"][os.getenv("FLAG")] = os.getenv("RESOLUTION")
               toml.dump(resolutions, f)
