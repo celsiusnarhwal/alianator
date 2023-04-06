@@ -11,13 +11,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install Poetry
-        run: pipx install poetry==1.4.1
-
-      - name: Install Dependencies
-        run: poetry install --no-root --only ci
-        env:
-          POETRY_VIRTUALENVS_CREATE: false
+      - run: pip install tomlkit
 
       - name: Parse Issue
         id: issue
