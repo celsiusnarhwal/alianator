@@ -11,6 +11,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Install Dependencies
+        run: pipx install poetry==1.4.1 && poetry install --no-root --only ci
+        env:
+          POETRY_VIRTUALENVS_CREATE: false
+
       - name: Parse Issue
         id: issue
         uses: stefanbuck/github-issue-parser-action@v3
