@@ -1,0 +1,19 @@
+name: Privileged
+labels:
+  - privileged
+
+description: If you're not @celsiusnarhwal, please choose one of the other options.
+body:
+  - type: checkboxes
+    id: privileged
+    attributes:
+      label: Confirmation
+      options:
+        - label: I'm @celsiusnarhwal. I understand that my issue will be otherwise closed without comment.
+          required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: Issue
+      description: Describe the issue.

@@ -3,7 +3,9 @@ from __future__ import annotations
 from typing import Optional, Union
 
 import discord
+import tomlkit as toml
 from multimethod import multimethod
+from path import Path
 from pydantic import validate_arguments
 from titlecase import titlecase
 
@@ -60,22 +62,8 @@ def resolve(
 
     def resolver(names: list[str]) -> list[str]:
         # manually define resolutions that can't be accomplished by simple character substitution
-        resolutions_ = {
-            "send_messages": "Send Messages and Create Posts",
-            "send_messages_in_threads": "Send Messages in Threads and Posts",
-            "external_emojis": "Use External Emoji",
-            "external_stickers": "Use External Stickers",
-            "manage_emojis": "Manage Guild Expressions",
-            "manage_emojis_and_stickers": "Manage Guild Expressions",
-            "manage_threads": "Manage Threads and Posts",
-            "mention_everyone": "Mention \\@everyone, \\@here, and All Roles",
-            "moderate_members": "Timeout Members",
-            "send_tts_messages": "Send Text-to-Speech Messages",
-            "start_embedded_activities": "Use Activities",
-            "stream": "Video",
-            "use_slash_commands": "Use Application Commands",
-            "use_voice_activation": "Use Voice Activity",
-        }
+        with Path(__file__).parent:
+            resolutions_ = toml.load(open("resolutions.toml"))
 
         if not escape_mentions:
             resolutions_["mention_everyone"] = resolutions_["mention_everyone"].replace(
