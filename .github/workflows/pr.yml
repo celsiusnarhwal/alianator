@@ -18,7 +18,7 @@ jobs:
 
       - name: Parse Issue
         id: issue
-        uses: stefanbuck/github-issue-parser-action@v3
+        uses: stefanbuck/github-issue-parser@v3
         with:
           template-path: .github/ISSUE_TEMPLATE/2_outdated_permission.yml
 
