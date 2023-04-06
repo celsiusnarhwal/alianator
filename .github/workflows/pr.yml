@@ -21,8 +21,8 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          echo "FLAG=${{ steps.issue.outputs.flag }}" >> $GITHUB_ENV
-          echo "RESOLUTION=${{ steps.issue.outputs.correct-resolution }}" >> $GITHUB_ENV
+          echo "FLAG=${{ steps.issue.outputs.issueparser_flag }}" >> $GITHUB_ENV
+          echo "RESOLUTION=${{ steps.issue.outputs.issueparser_correct-resolution }}" >> $GITHUB_ENV
 
       - name: Update Resolutions File
         run: |
