@@ -1,0 +1,50 @@
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.label.name == 'outdated permission' }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Parse Issue
+        id: issue
+        uses: stefanbuck/github-issue-parser-action@v3
+        with:
+          template-path: .github/ISSUE_TEMPLATE/2_outdated_permission.yml
+
+      - name: Set Environment Variables
+        run: |
+          echo "FLAG=${{ steps.issue.outputs.flag }}" >> $GITHUB_ENV
+          echo "RESOLUTION=${{ steps.issue.outputs.correct-resolution }}" >> $GITHUB_ENV
+
+      - name: Update Resolutions File
+        run: |
+          import os
+
+          import tomlkit as toml
+
+          with open("src/alienator/resolutions.toml", "w+") as f:
+              resolutions = toml.load(f)
+              resolutions["permissions"][os.getenv("FLAG")] = os.getenv("RESOLUTION")
+              toml.dump(resolutions, f)
+        env:
+          FLAG: ${{ env.FLAG }}
+          RESOLUTION: ${{ env.RESOLUTION }}
+        shell: python
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: Update resolution for `${{ env.FLAG }}` to `${{ env.RESOLUTION }}`
+          committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: ${{ github.event.issue.number }}/${{ env.FLAG }}
+          title: Update resolution for `${{ env.FLAG }}` to `${{ env.RESOLUTION }}`
+          labels: outdated permission
+          assignees: celsiusnarhwal
+          reviewers: celsiusnarhwal
